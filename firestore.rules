@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Rules for Projects
+    match /projects/{projectId} {
+      allow read: if true; // Let all authenticated users read, or public read for client view
+      allow write: if true; // In production, restrict to authenticated users of type 'Empresa'
+    }
+
+    // Rules for Activities
+    match /activities/{activityId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Rules for Costs Direct
+    match /costs_direct/{costId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Rules for Costs Indirect
+    match /costs_indirect/{costId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Rules for Certifications
+    match /certifications/{certId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Rules for S-Curve Progress Cuts
+    match /progress/{progressId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Rules for Knowledge Base
+    match /knowledge_base/{kbId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Rules for Test Connection
+    match /test_connection/{testId} {
+      allow read, write: if true;
+    }
+  }
+}

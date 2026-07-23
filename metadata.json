@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Tablerodecontrol-V1",
+  "description": "Plataforma integral para la gestión, avance, costos y certificaciones en tiempo real para Taging Ingeniería Inteligente.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    size: A3 landscape;
+    margin: 0mm;
+  }
+  
+  html, body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    background-color: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force page sections to fit A3 landscape without overflowing */
+  .page-break,
+  .break-after-page {
+    break-after: page !important;
+    page-break-after: always !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Prevent page breaks inside elements */
+  .break-inside-avoid,
+  .print-card,
+  .recharts-wrapper,
+  .recharts-surface,
+  svg,
+  table,
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Maintain layout grid columns in print mode */
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  .grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+
+  /* Ensure SVG charts are visible and do not overflow */
+  svg {
+    max-width: 100% !important;
+  }
+
+  .recharts-responsive-container {
+    min-height: 90px !important;
+    width: 100% !important;
+  }
+}
